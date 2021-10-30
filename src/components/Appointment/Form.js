@@ -31,10 +31,6 @@ export default function Form(props) {
             name="name"
             type="text"
             placeholder="Enter Student Name"
-          /*
-            This must be a controlled component
-            your code goes here
-          */
         />
       </form>
       <InterviewerList

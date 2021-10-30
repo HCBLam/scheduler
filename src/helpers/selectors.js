@@ -11,3 +11,17 @@ export function getAppointmentsForDay(state, day) {
   return selectedAppointments;
 };
 
+
+
+export function getInterview(state, interview) {
+
+  if (interview !== null) {
+    // console.log('interview.interviewer: =====> ', interview.interviewer)
+    // console.log('interviewer object: =====> ', state.interviewers[interview.interviewer])
+    return {...interview, interviewer: state.interviewers[interview.interviewer]};
+  }
+
+  return null;
+
+
+}
