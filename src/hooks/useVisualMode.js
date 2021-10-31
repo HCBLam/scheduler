@@ -22,7 +22,7 @@ export default function useVisualMode(initial) {
       setMode(history[history.length - 1]);
       setHistory(history);
     }
-  }
+  };
 
   return { mode, transition, back };
 };
