@@ -42,7 +42,6 @@ export default function Application(props) {
 
 
 
-
   function cancelInterview(id) {
 
     const appointment = {
@@ -60,7 +59,6 @@ export default function Application(props) {
       setState({...state, appointments})
     })
   }
-
 
 
 
@@ -82,9 +80,6 @@ export default function Application(props) {
       />
     );
   });
-
-
-
 
 
 
