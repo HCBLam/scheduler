@@ -37,12 +37,18 @@ export default function Appointment(props) {
       // return message:  'Student name cannot be blank'
     // }
 
-    if (name && interviewer) {
-      transition(SAVING);
-      props.bookInterview(props.id, interview)
-        .then(() => transition(SHOW))
-        .catch((error) => transition(ERROR_SAVE, true))
-    }
+    // if (name && interviewer) {
+    //   transition(SAVING);
+    //   props.bookInterview(props.id, interview)
+    //     .then(() => transition(SHOW))
+    //     .catch((error) => transition(ERROR_SAVE, true))
+    // }
+
+    transition(SAVING);
+    props.bookInterview(props.id, interview)
+      .then(() => transition(SHOW))
+      .catch((error) => transition(ERROR_SAVE, true))
+
   }
 
 
