@@ -16,22 +16,27 @@ export default function useApplicationData() {
   const setDay = day => setState({ ...state, day });
 
 
-
   const updateSpots = function(state, appointments, id) {
 
+    // Find the selected day object
     const day = state.days.find(date => date.name === state.day);
 
     let spots = 0;
 
+    // Iterate through the day's appointments by id
     for (const id of day.appointments) {
       const appointment = appointments[id];
 
+      // If the appointment does not have an interview, increment spots available
       if (!appointment.interview) {
         spots++;
       }
     };
 
+    // Update the day object with the new spots value
     const newDay = {...day, spots};
+
+    // Update the days array with the updated day object
     const newDays = state.days.map(date => date.name === state.day ? newDay : date);
     return newDays;
   };
