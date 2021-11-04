@@ -87,6 +87,7 @@ export default function Appointment(props) {
         <Confirm
           onCancel={() => back()}
           onConfirm={confirmDelete}
+          message='Delete the appointment?'
         />
       )}
 
