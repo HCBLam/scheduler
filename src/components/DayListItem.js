@@ -19,7 +19,7 @@ export default function DayListItem(props) {
     } else if (props.spots > 1) {
       return `${props.spots} spots remaining`;
     }
-  }
+  };
 
   return (
     <li

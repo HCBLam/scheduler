@@ -33,30 +33,18 @@ export default function Appointment(props) {
       interviewer
     };
 
-    // if (!name & !interviewer) {
-      // return message:  'Student name cannot be blank'
-    // }
-
-    // if (name && interviewer) {
-    //   transition(SAVING);
-    //   props.bookInterview(props.id, interview)
-    //     .then(() => transition(SHOW))
-    //     .catch((error) => transition(ERROR_SAVE, true))
-    // }
-
     transition(SAVING);
+
     props.bookInterview(props.id, interview)
       .then(() => transition(SHOW))
-      .catch((error) => transition(ERROR_SAVE, true))
-
-  }
-
+      .catch(() => transition(ERROR_SAVE, true))
+  };
 
 
   function deleteInterview() {
 
     transition(CONFIRM);
-  }
+  };
 
   function confirmDelete() {
 
@@ -64,13 +52,11 @@ export default function Appointment(props) {
 
     props.cancelInterview(props.id)
       .then(() => transition(EMPTY))
-      .catch((error) => transition(ERROR_DELETE, true))
-  }
-
+      .catch(() => transition(ERROR_DELETE, true))
+  };
 
 
   return (
-
     <article className="appointment">
       <Header time={props.time} />
 
@@ -101,7 +87,8 @@ export default function Appointment(props) {
         <Confirm
           onCancel={() => back()}
           onConfirm={confirmDelete}
-        />)}
+        />
+      )}
 
       {mode === EDIT && (
         <Form

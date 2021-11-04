@@ -10,28 +10,31 @@ export default function Form(props) {
 
   const reset = function() {
     setStudent('');
-    setInterviewer(null)
-  }
+    setInterviewer(null);
+  };
+
   const cancel = function() {
     reset();
-    props.onCancel()
-  }
+    props.onCancel();
+  };
 
   function validate() {
     if (student === "") {
       setError('Student name cannot be blank');
       return;
     }
+    if (interviewer === null) {
+      setError('Please select an interviewer');
+      return;
+    }
 
     setError("");
     props.onSave(student, interviewer);
-  }
+  };
 
-  // I need to reassign interviewer to value because that's the name of the prop being called in InterviewerList due to the refactor
   const value = interviewer;
 
   return (
-
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
         <form autoComplete="off" onSubmit={(event) => event.preventDefault()}>
@@ -43,8 +46,8 @@ export default function Form(props) {
             type="text"
             placeholder="Enter Student Name"
             data-testid="student-name-input"
-        />
-      </form>
+          />
+        </form>
       <section className="appointment__validation">{error}</section>
       <InterviewerList
         interviewers={props.interviewers}
@@ -59,5 +62,5 @@ export default function Form(props) {
       </section>
     </section>
   </main>
-  )
+  );
 };

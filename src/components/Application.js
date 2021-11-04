@@ -8,13 +8,10 @@ import { getInterview } from "helpers/selectors";
 import useApplicationData from "hooks/useApplicationData";
 
 
-
-export default function Application(props) {
+export default function Application() {
 
   const { state, setDay, bookInterview, cancelInterview } = useApplicationData();
-
   const dailyInterviewers = getInterviewersForDay(state, state.day);
-
   const dailyAppointments = getAppointmentsForDay(state, state.day);
 
 
@@ -32,7 +29,6 @@ export default function Application(props) {
       />
     );
   });
-
 
 
   return (
@@ -65,4 +61,4 @@ export default function Application(props) {
 
     </main>
   );
-}
+};
