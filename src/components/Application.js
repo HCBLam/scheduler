@@ -7,13 +7,10 @@ import { getInterviewersForDay } from "helpers/selectors";
 import { getInterview } from "helpers/selectors";
 import useApplicationData from "hooks/useApplicationData";
 
-
 export default function Application() {
-
   const { state, setDay, bookInterview, cancelInterview } = useApplicationData();
   const dailyInterviewers = getInterviewersForDay(state, state.day);
   const dailyAppointments = getAppointmentsForDay(state, state.day);
-
 
   const appointmentSchedule = dailyAppointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview);
@@ -29,7 +26,6 @@ export default function Application() {
       />
     );
   });
-
 
   return (
     <main className="layout">

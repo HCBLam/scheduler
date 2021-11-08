@@ -13,8 +13,6 @@ describe("Form", () => {
     }
   ];
 
-
-
   it("renders without student name if not provided", () => {
     const { getByPlaceholderText } = render(<Form interviewers={interviewers} />);
     expect(getByPlaceholderText("Enter Student Name")).toHaveValue("");
@@ -57,7 +55,6 @@ describe("Form", () => {
     fireEvent.click(getByText("Save"));
 
     expect(queryByText(/student name cannot be blank/i)).toBeNull();
-
     expect(onSave).toHaveBeenCalledTimes(1);
     expect(onSave).toHaveBeenCalledWith("Lydia Miller-Jones", "Sylvia Palmer");
   });
@@ -82,9 +79,7 @@ describe("Form", () => {
     fireEvent.click(getByText("Cancel"));
 
     expect(queryByText(/student name cannot be blank/i)).toBeNull();
-
     expect(getByPlaceholderText("Enter Student Name")).toHaveValue("");
-
     expect(onCancel).toHaveBeenCalledTimes(1);
   });
 

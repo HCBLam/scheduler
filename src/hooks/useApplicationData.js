@@ -10,9 +10,7 @@ export default function useApplicationData() {
     interviewers: {}
   });
 
-
   const setDay = day => setState({ ...state, day });
-
 
   const updateSpots = function(state, appointments, id) {
 
@@ -39,8 +37,6 @@ export default function useApplicationData() {
     return newDays;
   };
 
-
-
   function bookInterview(id, interview) {
 
     const appointment = {
@@ -60,7 +56,6 @@ export default function useApplicationData() {
     })
   }
 
-
   function cancelInterview(id) {
 
     const appointment = {
@@ -79,7 +74,6 @@ export default function useApplicationData() {
     })
   }
 
-
   useEffect(() => {
     Promise.all([
       axios.get('/api/days'),
@@ -89,7 +83,6 @@ export default function useApplicationData() {
       setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data}));
     });
   }, [])
-
 
   return { state, setDay, bookInterview, cancelInterview };
 };
