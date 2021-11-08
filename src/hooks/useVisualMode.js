@@ -9,22 +9,25 @@ export default function useVisualMode(initial) {
     setMode(mode);
 
     if (replace === true) {
-      history.pop();
+      setHistory(prev => [...prev.slice(0, -1), mode ])
+      return
     }
 
-    history.push(mode);
+    setHistory(prev => [...prev, mode]);
   };
 
 
   function back() {
     if (history.length > 1) {
-      history.pop();
-      setMode(history[history.length - 1]);
-      setHistory(history);
+      setHistory(prev => [...prev.slice(0, -1) ]);
+      setMode(history[history.length - 2]);
+      return
     }
   };
 
   return { mode, transition, back };
 };
+
+
 
 
